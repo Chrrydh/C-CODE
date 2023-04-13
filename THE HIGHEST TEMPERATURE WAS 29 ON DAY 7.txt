@@ -1,0 +1,38 @@
+
+YOU ARE WORKING ON A WEATHER APPLICATION THAT REQUIRES YOU TO ANALYZE THE TEMPERATURE OF THE PAST WEEK TO PROVIDE INSIGHTS TO USERS
+
+1.GIVEN THE TEMPERATURE OF THE PAST WEEK FIND THE AVERAGE TEMPERATURE
+2. THE HIGHEST TEMPERATURE WAS 29 ON DAY 7
+
+#include <stdio.h>
+
+int main() {
+    int i;                            // Variable to loop through days of the week
+    float temperature[7];             // Array to store temperature for 7 days
+    float averageTemp;                // Variable to store average temperature
+    float highestTemp = -9999;        // Variable to store highest temperature, initialized to a very low value
+
+    // Input temperature for each day of the week
+    for (i = 0; i < 7; i++) {
+        printf("Enter temperature for day %d: ", i + 1);
+        scanf("%f", &temperature[i]);  // Store temperature in array
+        
+        // Update highest temperature if a higher value is entered
+        if (temperature[i] > highestTemp) {
+            highestTemp = temperature[i];
+        }
+    }
+
+    // Calculate average temperature
+    float sum = 0;                    // Variable to store sum of temperatures
+    for (i = 0; i < 7; i++) {
+        sum += temperature[i];        // Accumulate sum of temperatures
+    }
+    averageTemp = sum / 7;            // Calculate average temperature
+
+    printf("Average temperature for the past week: %.2f\n", averageTemp);  // Print average temperature
+    printf("Highest temperature: %.2f on day 7\n", highestTemp);          // Print highest temperature
+
+    return 0;
+}
+
